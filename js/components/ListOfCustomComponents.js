@@ -14,7 +14,7 @@ function ListOfCustomComponents (props) {
                     listItems.map(({ id, name }) => html`<${CustomComponent} componentName="list-item" id=${id} name=${name} />`)
                 }
             </ul>
-            <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Jenny' })}>Add</button>
+            <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Steven' })}>Add</button>
         </div>
     `;
 }

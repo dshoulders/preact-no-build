@@ -32,6 +32,9 @@ const ListItemProvider = ( { children } ) => {
                     return item.id !== action.id;
                 });
 
+            case 'REVERSE_ITEMS':
+                return [...listItems.reverse()];
+
             default:
                 return listItems;
         };

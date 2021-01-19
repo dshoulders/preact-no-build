@@ -15,6 +15,7 @@ function List (props) {
                 }
             </ul>
             <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Jenny' })}>Add</button>
+            <button onclick=${() => dispatch({ type: 'REVERSE_ITEMS' })}>Reverse</button>
         </div>
     `;
 }
