@@ -1,9 +1,9 @@
 import { useContext } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
 import { html } from '../utils/markup.js';
 import { listItemStore } from '../state/listItems.js';
-import ListItem from './ListItem.js';
+import CustomComponent from './CustomComponent.js';
 
-function List (props) {
+function ListOfCustomComponents (props) {
 
     const { dispatch, listItems } = useContext(listItemStore);
 
@@ -11,7 +11,7 @@ function List (props) {
         <div>
             <ul>
                 ${
-                    listItems.map(ListItem)
+                    listItems.map(({ id, name }) => html`<${CustomComponent} componentName="list-item" id=${id} name=${name} />`)
                 }
             </ul>
             <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Jenny' })}>Add</button>
@@ -19,4 +19,4 @@ function List (props) {
     `;
 }
 
-export default List;
+export default ListOfCustomComponents;

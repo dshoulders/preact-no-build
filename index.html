@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Build</title>
+    <script type="module">
+        import { render, h } from 'https://unpkg.com/preact@latest?module';
+
+        window.CUSTOM_COMPONENTS = {
+            'list-item': (element, props) => {
+                render(
+                    h('li', null, [
+                        h('span', { style: { textDecoration: 'line-through' } }, props.name),
+                        ' Kevin',
+                    ]),
+                    element
+                )
+            },
+        };
+    </script>
     <script src="js/app.js" type="module" defer></script>
 </head>
 <body>
