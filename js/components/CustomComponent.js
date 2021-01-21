@@ -20,7 +20,6 @@ function CustomComponent ({componentName, ...props}) {
         const fragment = document.createDocumentFragment();
         fragment.appendChild(rootElement);
         parentNode.insertBefore(fragment, placeholderElement);
-        parentNode.removeChild(placeholderElement);
 
         return () => {
             parentNode.removeChild(rootElement);
@@ -31,7 +30,7 @@ function CustomComponent ({componentName, ...props}) {
         instanceRef.current.update(props);
     });
 
-    return html`<div ref=${placeholderElementRef} />`;
+    return html`<script ref=${placeholderElementRef} />`;
 }
 
 export default CustomComponent;
