@@ -5,17 +5,14 @@ import CustomComponent from './CustomComponent.js';
 
 function ListOfCustomComponents (props) {
 
-    const { dispatch, listItems } = useContext(listItemStore);
+    const { listItems } = useContext(listItemStore);
 
     return html`
-        <div>
-            <ul>
-                ${
-                    listItems.map(({ id, name }) => html`<${CustomComponent} componentName="list-item" id=${id} name=${name} />`)
-                }
-            </ul>
-            <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Steven' })}>Add</button>
-        </div>
+        <ul>
+            ${
+                listItems.map(({ id, name }) => html`<${CustomComponent} componentName="list-item" id=${id} name=${name} />`)
+            }
+        </ul>
     `;
 }
 

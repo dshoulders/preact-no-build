@@ -35,6 +35,12 @@ const ListItemProvider = ( { children } ) => {
             case 'REVERSE_ITEMS':
                 return [...listItems.reverse()];
 
+            case 'RENAME_ITEMS':
+                return listItems.map(li => {
+                    li.name = 'Barry';
+                    return li;
+                });
+
             default:
                 return listItems;
         };

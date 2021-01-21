@@ -1,18 +1,15 @@
 import { render } from 'https://unpkg.com/preact@latest?module';
 import { html } from './utils/markup.js';
 import { ListItemProvider } from './state/listItems.js';
-import List from './components/List.js';
-import ListOfCustomComponents from './components/ListOfCustomComponents.js';
+import Lists from './components/Lists.js';
 
-function App (props) {
+function App () {
 
     return html`
         <${ListItemProvider}>
-            <h1>Hello ${props.name}!</h1>
-            <${List}/>
-            <${ListOfCustomComponents}/>
+            <${Lists}/>
         </${ListItemProvider}>
     `;
 }
 
-render(html`<${App} name="World" />`, document.getElementById('app'));
+render(html`<${App}/>`, document.getElementById('app'));

@@ -4,30 +4,32 @@ import { html } from '../utils/markup.js';
 
 function CustomComponent ({componentName, ...props}) {
 
+    const isInitialMount = useRef(true);
     const placeholderElementRef = useRef(null);
-    const instanceRef = useRef(null);
+    const rootElementRef = useRef(null);
+    const parentNodeRef = useRef(null);
+    const fragmentRef = useRef(null);
 
     useEffect(() => {
 
-        const placeholderElement = placeholderElementRef.current;
-        const parentNode = placeholderElement.parentNode;
+        if (isInitialMount.current) {
+            fragmentRef.current = document.createDocumentFragment();
+        }
 
-        const instance = new window.CUSTOM_COMPONENTS[componentName]();
-        instanceRef.current = instance;
-        instance.props = props;
-        const rootElement = instance.render();
+        window.CUSTOM_COMPONENTS[componentName]({
+            props,
+            element: fragmentRef.current,
+        });
 
-        const fragment = document.createDocumentFragment();
-        fragment.appendChild(rootElement);
-        parentNode.insertBefore(fragment, placeholderElement);
+        if (isInitialMount.current) {
+            rootElementRef.current = fragmentRef.current.firstChild;
+            parentNodeRef.current = placeholderElementRef.current.parentNode;
+            parentNodeRef.current.insertBefore(fragmentRef.current, placeholderElementRef.current);
+        }
 
         return () => {
-            parentNode.removeChild(rootElement);
+            parentNodeRef.current.removeChild(rootElementRef.current);
         }
-    }, []);
-
-    useEffect(() => {
-        instanceRef.current.update(props);
     });
 
     return html`<script ref=${placeholderElementRef} />`;

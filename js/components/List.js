@@ -5,18 +5,14 @@ import ListItem from './ListItem.js';
 
 function List (props) {
 
-    const { dispatch, listItems } = useContext(listItemStore);
+    const { listItems } = useContext(listItemStore);
 
     return html`
-        <div>
-            <ul>
-                ${
-                    listItems.map(ListItem)
-                }
-            </ul>
-            <button onclick=${() => dispatch({ type: 'ADD_ITEM', name: 'Jenny' })}>Add</button>
-            <button onclick=${() => dispatch({ type: 'REVERSE_ITEMS' })}>Reverse</button>
-        </div>
+        <ul>
+            ${
+                listItems.map(ListItem)
+            }
+        </ul>
     `;
 }
 
