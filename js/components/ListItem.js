@@ -1,4 +1,4 @@
-import { useContext } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
+import { useContext } from 'https://cdn.skypack.dev/react';
 import { html } from '../utils/markup.js';
 import { listItemStore } from '../state/listItems.js';
 
@@ -8,7 +8,7 @@ function ListItem ({ name, id }) {
 
     return html`
         <li key=${id}>
-            <button onclick=${() => dispatch({ type: 'REMOVE_ITEM', id })}>X</button>
+            <button onClick=${() => dispatch({ type: 'REMOVE_ITEM', id })}>X</button>
             ${name}
         </li>
     `;

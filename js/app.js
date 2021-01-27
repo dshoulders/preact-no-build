@@ -1,13 +1,13 @@
-import { render } from 'https://unpkg.com/preact@latest?module';
+import { render } from 'https://cdn.skypack.dev/react-dom';
 import { html } from './utils/markup.js';
 import { ListItemProvider } from './state/listItems.js';
-import Lists from './components/Lists.js';
+import ListControls from './components/ListControls.js';
 
 function App () {
 
     return html`
         <${ListItemProvider}>
-            <${Lists}/>
+            <${ListControls}/>
         </${ListItemProvider}>
     `;
 }

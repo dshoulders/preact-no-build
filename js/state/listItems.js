@@ -1,5 +1,4 @@
-import { createContext } from 'https://unpkg.com/preact@latest?module';
-import { useReducer } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
+import { createContext, useReducer } from 'https://cdn.skypack.dev/react';
 import { html } from '../utils/markup.js';
 
 const getID = (() => {

@@ -1,5 +1,5 @@
-import { h } from 'https://unpkg.com/preact@latest?module';
+import react from 'https://cdn.skypack.dev/react';
 import htm from 'https://unpkg.com/htm?module';
 
-// Initialize htm with Preact
-export const html = htm.bind(h);
+// Initialize htm with react
+export const html = htm.bind(react.createElement);

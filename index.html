@@ -3,27 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No Build</title>
-
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     
-    <script type="module">
-
-        const MyComponent = ({ name }) => {
-            return React.createElement('li', {}, name);
-        }
-
-        const listItem = ({ props, element }) => {
-            window.ReactDOM.render(React.createElement(MyComponent, props), element);
-        }       
-
-        window.CUSTOM_COMPONENTS = {
-            'list-item': listItem,                
-        };
-
-    </script>
-    <script src="js/app.js" type="module" defer></script>
+    <title>No Build</title>
+    
+    <script src="js/app.js" type="module" defer></script>  
+    
 </head>
 <body>
     <div id="app"></div>
